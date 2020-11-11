@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ScrollView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,10 +27,11 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new FeedFragment()).commit();
 
         Toolbar topBar = findViewById(R.id.topToolBar);
+        NavigationView navView = findViewById(R.id.navigation_view);
         topBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                navView.setVisibility(View.VISIBLE);
             }
         });
     }

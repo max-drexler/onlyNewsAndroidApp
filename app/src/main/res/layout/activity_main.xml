@@ -6,14 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:visibility="invisible">
+
+        <ListView
+            android:id="@+id/navdrawer_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:choiceMode="singleChoice"
+            android:dividerHeight="0dp"
+            android:divider="@null"/>
+
+    </com.google.android.material.navigation.NavigationView>
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/topToolBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:menu="@menu/top_bar"
         android:layout_alignParentTop="true"
-        android:background="@color/teal_200"
         app:navigationIcon="@drawable/ic_toolbar_nav_menu"
+        app:title="News"
         />
     <FrameLayout
         android:id="@+id/fragment_layout"
