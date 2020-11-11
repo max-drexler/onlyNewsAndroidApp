@@ -14,24 +14,31 @@ import android.widget.ScrollView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
+//TODO: Set up other fragments and interactions with news client
+
 public class MainActivity extends AppCompatActivity {
+
+    private BottomNavigationView mBottomNav;
+    private Toolbar mTopBar;
+    private NavigationView mNavView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView bottomNav = findViewById(R.id.bottomNavBar);
-        bottomNav.setOnNavigationItemSelectedListener(navListener);
-        bottomNav.setSelectedItemId(R.id.BBfeed);
+        mBottomNav = findViewById(R.id.bottomNavBar);
+        mBottomNav.setOnNavigationItemSelectedListener(navListener);
+        mBottomNav.setSelectedItemId(R.id.BBfeed);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new FeedFragment()).commit();
 
-        Toolbar topBar = findViewById(R.id.topToolBar);
-        NavigationView navView = findViewById(R.id.navigation_view);
-        topBar.setNavigationOnClickListener(new View.OnClickListener() {
+        mTopBar = findViewById(R.id.topToolBar);
+        mNavView = findViewById(R.id.navigation_view);
+
+        mTopBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navView.setVisibility(View.VISIBLE);
+                mNavView.setVisibility(View.VISIBLE);
             }
         });
     }
