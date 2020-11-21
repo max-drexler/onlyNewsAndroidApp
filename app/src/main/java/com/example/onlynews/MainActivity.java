@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         mBottomNav = findViewById(R.id.bottomNavBar);
         mBottomNav.setOnNavigationItemSelectedListener(navListener);
         mBottomNav.setSelectedItemId(R.id.BBfeed);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new FeedFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new SearchFragment()).commit();
 
         mTopBar = findViewById(R.id.topToolBar);
         mNavView = findViewById(R.id.navigation_view);
