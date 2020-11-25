@@ -1,5 +1,6 @@
 package com.example.onlynews.views;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -10,8 +11,11 @@ import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
+import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.Fragment;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
@@ -91,5 +95,13 @@ public class ArticleView extends View {
 
 
         setMeasuredDimension(widthMeasureSpec, heightMeasureSpec);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        Fragment html = new htmlViewFragment();
+        FragmentTransaction ft = ((Activity) getContext()).getSupportedFragmentManager().beginTransaction();
+        ft.replace(((Activity) getContext()).getTaskId(), html);
+        return super.onTouchEvent(event);
     }
 }
